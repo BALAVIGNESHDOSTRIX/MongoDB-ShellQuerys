@@ -1,0 +1,41 @@
+use ConfusionServer                                     //'use' used to create and switch to required database
+
+db.createCollection('friends')                          //'createCollection' is used to create the collection in required database         
+
+db.friends.insert({name:"Balavignesh",age:22})          
+
+db.friends.find()
+
+db.friends.find({name:"Balavignesh"})
+
+db.friends.find({age:{$gt:20}})
+
+
+db.friends.find().limit(1)
+
+db.friends.update({},{$set:{gender:"m"}})
+
+db.friends.update({},{$set:{gender:"m"}},{multi:true})
+
+db.friends.update({name:"Balavignesh"},{$set: {gender : "m"}},{multi:true})
+
+db.friends.update({},{$unset:{gender:"m"}},{multi:true})
+
+db.friends.remove({})
+
+db.friends.drop()
+
+
+
+
+
+Advance Query
+
+db.friends.find().pretty()
+
+db.friends.ensureIndex({"Balavignesh:1"})
+
+
+db.friends.getIndexes()
+
+db.friends.dropIndex("Balavignesh")
